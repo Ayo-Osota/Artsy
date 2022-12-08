@@ -58,6 +58,7 @@
     --size-300: 20px;
     --size-400: 25px;
     --size-450: 30px;
+    --size-490: 37px;
     --size-500: 47px;
     --size-600: 50px;
     --size-700: 60px;
@@ -232,6 +233,7 @@ p {
 
 .flex {
     display: flex;
+    justify-content: space-between;
 }
 
 .even-columns {
@@ -326,6 +328,11 @@ p {
 .fs-secondary-heading {
     font-size: var(--fs-secondary-heading);
     line-height: 1.1;
+}
+
+.fs-sub-heading {
+    font-size: var(--fs-sub-heading);
+    /* line-height: 50px; */
 }
 
 .fs-50 {
@@ -616,7 +623,7 @@ p {
     .primary-heading {
         color: var(--clr-grey-400);
         font-weight: var(--fw-semi-bold);
-        max-width: 36ch;
+        max-width: 18ch;
     }
 
     .hero-section p.fs-100 {
@@ -629,178 +636,215 @@ p {
     }
 
     .lg-hero {
-        /* display: flex; */
+        display: flex;
         align-items: center;
         gap: var(--size-300);
-        /* height: 505px; */
-    }
-
-    #flip {
-        background-color: #ffffff;
-        display: flex;
-        width: 808px;
-        height: 100%;
-        gap: 10px;
-        position: relative;
         overflow: hidden;
-    }
-
-    /* ----------------------------------------------------------- */
-    /* My attempt at the animation skip for now */
-
-    .lg-hero img {
-        width: 360px;
-        /* height: 100%; */
-        /* background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        border: solid red; */
-    }
-
-    .lg-hero > div:nth-child(2) {
-        background-image: url(./images/product05.jpg);
-        /* transition: 10s; */
-    }
-
-    .lg-hero > div:nth-child(3) {
-        background-image: url(./images/product05.jpg);
-    }
-
-    .test {
-        background-image: url(./images/product09.jpg);
-        /* order: -1; */
-        /* animation: order 10s ease 0; */
-        /* animation: name duration timing-function delay iteration-count direction fill-mode; */
-        /* order: -1; */
-        /* animation: order-img 3s linear infinite; */
-        /* opacity: 1; */
-    }
-
-    .test:hover {
-        
-        opacity: 0.4;
+        height: 505px;
+        margin-inline: auto;
     }
 
     .hero-slide {
-        width: 360px;
+        min-width: 360px;
         height: 100%;
-        position: absolute;
-        opacity: 0.4;
-        background-color: #000000;
+        background-image: 
+        url(./images/product07.jpg),
+        url(./images/product05.jpg),
+        url(./images/product21.jpg),
+        url(./images/product08.jpg),
+        url(./images/product09.jpg);
+        background-repeat: no-repeat;
+        background-position-x: center, 380px, 380px, 380px, 380px;
+        background-size: contain;
+        animation: hero-animation 6s ease infinite;
     }
 
-    .first-slide {
-        background-color: red;
-        left: 0;
-        animation: slide-right-end 1s ease infinite;
-        transition: 3s;
-        z-index: 100;
+    .hero-slide:first-child {
+        background-position-y: 55%;
+        animation-delay: -1.2s;
     }
 
-    .second-slide {
-        background-color: orange;
-        left: 510px;
-        animation: slide-left 1s ease infinite;
-        /* transition: 3s; */
+    .hero-slide:nth-child(2) {
+        background-position-y: 56.2%;
+        animation-delay: -2.4s;
     }
 
-    .third-slide {
-        background-color: blue;
-        left: 1020px;
-        animation: slide-right 1s ease infinite;
+    .hero-slide:nth-child(3) {
+        background-position-y: 50.3%;
+        animation-delay: -3.6s;
     }
 
-    /* .lg-hero > img:first-child { */
-        /* content: url(./images/creator1.jpg); */
-        /* transition: width 2s ease-in; */
-        /* animation: main-flip 10s ease-in; */
-        /* animation-name: main-flip;
-        animation-duration: 10s;
-        animation-timing-function: linear;
-        min-height: auto;
-        height: 400px; */
-    /* } */
+    .hero-slide:nth-child(4) {
+        background-position-y: 56.2%;
+        animation-delay: -4.8s;
+    }
+
+    .hero-slide:nth-child(5) {
+        background-position-y: 56.2%;
+        animation-delay: 1s;
+        animation-delay: 0s;
+    }
+}
+
+@keyframes hero-animation {
+    0% {
+        background-position-x: -380px, -380px, -380px, -380px, center;
+    }
+
+    5% {
+        background-position-x: -380px, -380px, -380px, center, +380px;
+    }
+
+    10% {
+        background-position-x: -380px, -380px, center, -380px, +380px;
+    }
+
+    15% {
+        background-position-x: -380px, center, +380px, +380px, +380px;
+    }
+
+    20% {
+        background-position-x: center, +380px, +380px, +380px, +380px;
+    }
+
+    /* 10% {
+        background-position-x: center, 380px, 380px, 380px, 380px;
+    } */
+
+    40% {
+        background-position-x: -380px, center, 380px, 380px, 380px;
+    }
+
+    60% {
+        background-position-x: -380px, -380px, center, 380px, 380px;
+    }
+
+    80% {
+        background-position-x: -380px, -380px, -380px, center, 380px;
+    }
+
+    100% {
+        background-position-x: -380px, -380px, -380px, -380px, center;
+    }
 }
 
 /* Rest of Homepage */
 
 .features {
-    margin-right: 0.625rem;
-    margin-top: 7.0625rem;
+    margin-top: 10.125rem;
+}
+
+.features > h2 {
+    margin-bottom: var(--size-490);
+}
+
+.features > .even-columns {
+    grid-auto-flow: row;
+    grid-auto-columns: 1fr;
 }
 
 .featured-product {
     display: flex;
-    flex-direction: column;
+    gap: var(--size-490);
+    padding: var(--size-700) 0;
+    border-top: 0.5px solid #333333;
+}
+
+.featured-product:nth-child(even) > div:nth-child(2) {
+    order: -1;
 }
 
 .featured-product > div:first-child {
-    width: 100%;
-    aspect-ratio: 1.1;
+    width: 610px;
+    height: 305px;
     background: url(./images/product20.jpg) var(--clr-grey-100);
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
 }
 
+.featured-product > div:nth-child(2) {
+    flex-direction: column;
+}
 
-/* Hero Animations */
+.featured-product > div:nth-child(2) > .flex:last-child {
+    margin-bottom: -14px;
+    align-items: center;
+}
 
+.featured-product > div:nth-child(2) > p {
+    line-height: 32px;
+    max-width: 33ch;
+}
 
+.featured-product > div:nth-child(2) ul {
+    display: flex;
+    /* align-items: flex-end; */
+}
 
-@keyframes main-image-flip {
-    0% {
-        /* content: url(./images/product07.jpg); */
-        width: auto;
+.pfp {
+    width: 50px;
+    height: 50px;
+    background: url(.png) #d9d9d9;
+    border: 1.5px solid var(--clr-primary-400);
+    border: 1px solid #78A3AD;
+    border-radius: 100%;
+}
+
+.pfp:not(:first-child) {
+    margin-left: -1.25rem;
+}
+
+.feature-btn {
+    width: 78px;
+    height: 78px;
+    border-radius: 100%;
+    background: url(./images/right-arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 0.5px solid #333333;
+}
+
+@media (max-width: 50em) {
+    .features {
+        margin-right: 0.625rem;
+        margin-top: 7.0625rem;
     }
-
-    50% {
-        width: 0px;
+    
+    .featured-product {
+        display: flex;
+        flex-direction: column;
     }
-
-    100% {
-        /* content: url(./images/product09.jpg); */
-        width: auto;
+    
+    .featured-product > div:first-child {
+        width: 100%;
+        aspect-ratio: 1.1;
+        background: url(./images/product20.jpg) var(--clr-grey-100);
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 }
 
-@keyframes main-flip {
-    from {
-        width: 0;
-    }
+.newsletter-wrapper {
+    height: 780px;
+    margin-top: 11.625rem;
 
-    to {
-        width: 358px;
-    }
+    background: linear-gradient(99.99deg, #4693ED -26.21%, #79C2D2 22.16%, rgba(192, 86, 9, 0.49) 111.62%);
 }
 
-@keyframes fade {
-    from {
-        opacity: 0.4;
-    }
-
-    to {
-        opacity: 1;
-    }
+.newsletter-wrapper > .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
-@keyframes slide-left {
-    to {
-        left: 0px;
-    }
+.newsletter-wrapper > .container > div:first-of-type {
+    width: 100%;
+    background: var(--clr-grey-250);
+    align-items: flex-end;
 }
 
-@keyframes slide-right {
-    to {
-        left: 510px;
-    }
-}
-
-@keyframes slide-right-end {
-    form {
-        left: 0;
-    }
-
-    to {
-        left: 1020px;
-    }
+.newsletter-wrapper > .container > div:first-of-type nav ul {
+    gap: var(--size-450);
 }
