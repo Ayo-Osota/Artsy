@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # artsy
 
 ## Getting Started
@@ -92,3 +93,6 @@ Build the web app
 ```shell
 pnpm build
 ```
+=======
+Hello
+>>>>>>> origin/main
