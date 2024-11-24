@@ -1,19 +1,228 @@
+@import url("https://api.fontshare.com/v2/css?f[]=clash-display@200,400,700,500,600&f[]=satoshi@700,500,400&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 html,
 body {
-    height: 100%;
+  min-height: 100%;
+}
+
+@layer components {
+  .wallet-adapter-button {
+    @apply !bg-black;
+  }
+}
+
+.pg-container {
+  --max-width: 1200px;
+  --padding: 0.5rem;
+
+  width: min(var(--max-width), 100% - (var(--padding) * 2));
+  margin-inline: auto;
+}
+
+:where(.flow > :not(:first-child)) {
+  margin-top: var(--flow-spacer, 3em);
+}
+
+.even-columns {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 50em) {
+  .even-columns {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
 }
 
 .wallet-adapter-button-trigger {
-    background: rgb(100, 26, 230) !important;
-    border-radius: 8px !important;
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+  background: rgb(0, 0, 0) !important;
+  border-radius: 3px !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
 }
+
 .wallet-adapter-dropdown-list,
 .wallet-adapter-button {
-    font-family: inherit !important;
+  font-family: inherit !important;
+  font-size: 1.625 !important;
+  font-weight: 500 !important;
+}
+
+/* HERO SECTION */
+.sm-hero {
+  position: relative;
+  max-width: 100%;
+  aspect-ratio: 1.1;
+  margin: 0 0.125rem;
+}
+
+.sm-hero img {
+  position: absolute;
+}
+
+.sm-hero img:first-child {
+  left: 0;
+  top: 56.57px;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+}
+
+.sm-hero img:nth-child(2) {
+  left: 0;
+  top: 4.09px;
+  z-index: 0;
+  width: 100%;
+}
+
+.sm-hero img:nth-child(3) {
+  left: 22.16px;
+  top: 26.29px;
+  z-index: 1;
+  width: 88.75%;
+}
+
+.sm-hero div {
+  width: 8.88%;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  position: absolute;
+  z-index: -100;
+}
+
+.sm-hero div:first-of-type {
+  top: 0;
+  right: 3.04%;
+  background: #006ca2;
+  filter: blur(20px);
+}
+
+.sm-hero div:nth-of-type(2) {
+  left: -2.122%;
+  top: 73.24%;
+  background: #c05609;
+  filter: blur(12.5px);
+}
+
+.sm-hero div:last-of-type {
+  bottom: 0;
+  right: 1.78%;
+  background: #f44336;
+  filter: blur(15px);
+}
+
+@media (min-width: 50em) {
+  .lg-hero {
+    display: flex;
+    max-width: 100%;
+    align-items: center;
+    gap: var(--size-300);
+    overflow: hidden;
+    height: 505px;
+    margin-inline: auto;
+  }
+
+  .hero-slide {
+    min-width: 360px;
+    height: 100%;
+    background-image: url(/images/product07.jpg), url(/images/product05.jpg),
+      url(/images/product21.jpg), url(/images/product08.jpg),
+      url(/images/product09.jpg);
+    background-repeat: no-repeat;
+    background-position-x: center, 380px, 380px, 380px, 380px;
+    background-size: contain;
+    animation: hero-animation 6s ease infinite;
+  }
+
+  .hero-slide:first-child {
+    background-position-y: 55%;
+    animation-delay: -1.2s;
+  }
+
+  .hero-slide:nth-child(2) {
+    background-position-y: 56.2%;
+    animation-delay: -2.4s;
+  }
+
+  .hero-slide:nth-child(3) {
+    background-position-y: 50.3%;
+    animation-delay: -3.6s;
+  }
+
+  .hero-slide:nth-child(4) {
+    background-position-y: 56.2%;
+    animation-delay: -4.8s;
+  }
+
+  .hero-slide:nth-child(5) {
+    background-position-y: 56.2%;
+    animation-delay: 1s;
+    animation-delay: 0s;
+  }
+}
+
+.upcoming-auctions {
+  background: linear-gradient(
+    99.99deg,
+    #4693ed -26.21%,
+    #79c2d2 22.16%,
+    rgba(192, 86, 9, 0.49) 111.62%
+  );
+}
+
+.upcoming-auctions .image-filter {
+  background: linear-gradient(
+      104.57deg,
+      rgba(0, 0, 0, 0) 21.03%,
+      rgba(0, 0, 0, 0.2) 56.5%,
+      rgba(0, 0, 0, 0.2) 93.84%
+    ),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.52));
+}
+
+@keyframes hero-animation {
+  0% {
+    background-position-x: -380px, -380px, -380px, -380px, center;
+  }
+
+  5% {
+    background-position-x: -380px, -380px, -380px, center, +380px;
+  }
+
+  10% {
+    background-position-x: -380px, -380px, center, -380px, +380px;
+  }
+
+  15% {
+    background-position-x: -380px, center, +380px, +380px, +380px;
+  }
+
+  20% {
+    background-position-x: center, +380px, +380px, +380px, +380px;
+  }
+
+  /* 10% {
+        background-position-x: center, 380px, 380px, 380px, 380px;
+    } */
+
+  40% {
+    background-position-x: -380px, center, 380px, 380px, 380px;
+  }
+
+  60% {
+    background-position-x: -380px, -380px, center, 380px, 380px;
+  }
+
+  80% {
+    background-position-x: -380px, -380px, -380px, center, 380px;
+  }
+
+  100% {
+    background-position-x: -380px, -380px, -380px, -380px, center;
+  }
 }

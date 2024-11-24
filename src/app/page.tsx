@@ -1,5 +1,8 @@
 import DashboardFeature from '@/components/dashboard/dashboard-feature'
+import Link from 'next/link'
 
 export default function Page() {
-  return <DashboardFeature />
+  return (
+    <Link href="/artsy">Home</Link>
+  )
 }

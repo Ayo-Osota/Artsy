@@ -1,5 +1,13 @@
-import ArtsyFeature from '@/components/artsy/artsy-feature'
+import FeaturedProducts from "./FeaturedProducts";
+import HeroSection from "./HeroSection";
+import UpcomingAuctions from "./UpcomingAuctions";
 
 export default function Page() {
-  return <ArtsyFeature />
+  return (
+    <>
+      <HeroSection />
+      <FeaturedProducts />
+      <UpcomingAuctions />
+    </>
+  );
 }
